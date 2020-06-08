@@ -8,6 +8,8 @@ public class ListeQuestions {
     private ArrayList<Question> listQuestionstheme;
 
     public ListeQuestions(){
+        this.listQuestionstheme = new ArrayList<Question>();
+
     }
 
     public void AjouterQuestion(Question q ){
