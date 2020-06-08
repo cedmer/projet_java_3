@@ -72,6 +72,17 @@ public class fenetre {
     private JButton Choisir;
     private QCM qcm1;
     private Question q1;
+    private ListeQuestions listetheme1;
+    private ListeQuestions listetheme2;
+    private ListeQuestions listetheme3;
+    private ListeQuestions listetheme4;
+    private ListeQuestions listetheme5;
+    private ListeQuestions listetheme6;
+    private ListeQuestions listetheme7;
+    private ListeQuestions listetheme8;
+    private ListeQuestions listetheme9;
+    private ListeQuestions listetheme10;
+
     private JFrame f = new JFrame("jeu");
 
     private JFrame frame = new JFrame();
@@ -105,12 +116,9 @@ public class fenetre {
                     listjoueur.add(j3.getNom());
                     listjoueur.add(j4.getNom());
                     Collections.shuffle(listjoueur);
-                    System.out.println(listjoueur.get(0));
-                    System.out.println(listjoueur.get(1));
                     Phase = 1;
 
-
-                    test(qcm1, q1);
+                    test(listetheme1);
 
                     if (t.getListIndicateur().size() > 0) {
                         int theme = t.SelectionnerTheme();
@@ -779,11 +787,14 @@ public class fenetre {
 
         qcm1 = new QCM("oui ou non", "oui", "non", "peut-etre", "oui");
         q1 = new Question(t.getListThemes().get(0), 1, qcm1);
+        listetheme1.AjouterQuestion(q1);
+
+
     }
 
-    public void test(QCM qcm1, Question q1) {
+    public void test(ListeQuestions l) {
+        QCMjoueur.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getTexte());
         QCMjoueur.setText(listjoueur.get(0));
-        QCMQuestion.setText(qcm1.getTexte());
         Reponse1.setText(qcm1.getRep1());
         reponse2.setText(qcm1.getRep2());
         reponse3.setText(qcm1.getRep3());

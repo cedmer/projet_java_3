@@ -16,6 +16,15 @@ public class Question<T> extends fenetre {
 	    this.difficulty = difficulty;
 
     }
+    public QCM QCMtype(){
+	    return (QCM)this.enonce;
+    }
+    public VF VFtype(){
+        return (VF)this.enonce;
+    }
+    public RC RCtype(){
+        return (RC)this.enonce;
+    }
 
 	public void afficher() {
 
