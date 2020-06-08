@@ -2,7 +2,11 @@ package game;
 
 public class Joueur {
     private static int incr = 100;
-    private int numero, score;
+    private int numero;
+
+
+
+    private int score;
     private String nom, etat;
 
     public Joueur(){
@@ -27,4 +31,7 @@ public class Joueur {
     public void changerEtat(String etat){ this.etat = etat; }
     public void MAJScore(int points){ this.score += points; }
     public void Saisir(String nom){ this.nom = nom; }
+    public void setScore(int score) {
+        this.score = score;
+    }
 }
