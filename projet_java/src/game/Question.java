@@ -68,7 +68,7 @@ public class Question<T> extends fenetre {
         return enonce;
     }
 
-    public void seténoncé(T énoncé) {
+    public void seténoncé(T enonce) {
         this.enonce = enonce;
     }
 }
