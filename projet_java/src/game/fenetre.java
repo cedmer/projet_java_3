@@ -115,10 +115,19 @@ public class fenetre {
                     listjoueur.add(j2.getNom());
                     listjoueur.add(j3.getNom());
                     listjoueur.add(j4.getNom());
-                    Collections.shuffle(listjoueur);//pour mélanger l'odre de jeu des joueurs
+                    Collections.shuffle(listjoueur);//pour melanger l'odre de jeu des joueurs
                     Phase = 1;
 
                     test(listetheme1);
+                    
+                    if (t.getListIndicateur().size() > 0) {
+                        int theme = t.SelectionnerTheme();
+                        System.out.println(theme);
+                        System.out.println(t.getListThemes().get(theme));
+                    } else {
+                        System.out.println("liste nulle");
+                        t = new Themes();
+                    }
 
 
                 }
