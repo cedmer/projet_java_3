@@ -3,11 +3,11 @@ package game;
 import java.util.ArrayList;
 import java.util.Random;
 
-public class Thèmes {
+public class Themes {
     private ArrayList<String> listThemes;
     private ArrayList<Integer> listIndicateur;
 
-    public Thèmes() {
+    public Themes() {
         this.listThemes = new ArrayList<String>();
         this.listIndicateur = new ArrayList<Integer>();
 

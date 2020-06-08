@@ -4,7 +4,7 @@ public class Question<T> extends fenetre {
 
 
 
-    int numéro;
+    int numero;
     String theme;
 	int difficulty;
 	T enonce;
@@ -16,12 +16,15 @@ public class Question<T> extends fenetre {
 	    this.difficulty = difficulty;
 
     }
+	
     public QCM QCMtype(){
 	    return (QCM)this.enonce;
     }
+    
     public VF VFtype(){
         return (VF)this.enonce;
     }
+    
     public RC RCtype(){
         return (RC)this.enonce;
     }
@@ -40,12 +43,12 @@ public class Question<T> extends fenetre {
         }
     }
 
-    public int getNuméro() {
-        return numéro;
+    public int getNumero() {
+        return numero;
     }
 
-    public void setNuméro(int numéro) {
-        this.numéro = numéro;
+    public void setNumero(int numero) {
+        this.numero = numero;
     }
 
     public String getTheme() {
@@ -64,11 +67,11 @@ public class Question<T> extends fenetre {
         this.difficulty = difficulty;
     }
 
-    public T geténoncé() {
+    public T getenonce() {
         return enonce;
     }
 
-    public void seténoncé(T enonce) {
+    public void setenonce(T enonce) {
         this.enonce = enonce;
     }
 }

@@ -87,7 +87,7 @@ public class fenetre {
 
     private JFrame frame = new JFrame();
 
-    private Thèmes t = new Thèmes();
+    private Themes t = new Themes();
     private ArrayList<String> listjoueur = new ArrayList<String>();
     private int Phase = 0;
 
@@ -777,7 +777,7 @@ public class fenetre {
         f.pack();
         f.setVisible(true);
 
-        qcm1 = new QCM("oui ou non", "oui", "non", "peut-etre", "oui");
+        qcm1 = new QCM("oui ou non ? ", "oui", "non", "peut-etre", "oui");
         q1 = new Question(t.getListThemes().get(0), 1, qcm1);
         listetheme1.AjouterQuestion(q1);
 
@@ -785,13 +785,13 @@ public class fenetre {
     }
 
     public void test(ListeQuestions l) {
-        QCMjoueur.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getTexte());//marche pas
+    	QCMQuestion.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getTexte());//marche pas
+        QCMTheme.setText(listetheme1.getListQuestionstheme().get(0).getTheme());
         QCMjoueur.setText(listjoueur.get(0));
-        Reponse1.setText(qcm1.getRep1());
-        reponse2.setText(qcm1.getRep2());
-        reponse3.setText(qcm1.getRep3());
-        QCMTheme.setText(q1.theme);
-        QCMNiveau.setText(String.valueOf(q1.difficulty));
+        Reponse1.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getRep1());
+        reponse2.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getRep2());
+        reponse3.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getRep3());
+        QCMNiveau.setText(String.valueOf(listetheme1.getListQuestionstheme().get(0).difficulty));
         f.setContentPane(QCMPanel);
         f.revalidate();
     }
