@@ -72,7 +72,7 @@ public class fenetre {
     private JButton Choisir;
     private QCM qcm1;
     private Question q1;
-    private ListeQuestions listetheme1;
+    private ListeQuestions listetheme1 = new ListeQuestions();
     private ListeQuestions listetheme2;
     private ListeQuestions listetheme3;
     private ListeQuestions listetheme4;
@@ -115,18 +115,10 @@ public class fenetre {
                     listjoueur.add(j2.getNom());
                     listjoueur.add(j3.getNom());
                     listjoueur.add(j4.getNom());
-                    Collections.shuffle(listjoueur);
+                    Collections.shuffle(listjoueur);//pour mélanger l'odre de jeu des joueurs
                     Phase = 1;
 
                     test(listetheme1);
-
-                    if (t.getListIndicateur().size() > 0) {
-                        int theme = t.SelectionnerTheme();
-                        System.out.println(t.getListThemes().get(theme));
-                    } else {
-                        System.out.println("liste nulle");
-                        t = new Thèmes();
-                    }
 
 
                 }
@@ -793,7 +785,7 @@ public class fenetre {
     }
 
     public void test(ListeQuestions l) {
-        QCMjoueur.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getTexte());
+        QCMjoueur.setText(listetheme1.getListQuestionstheme().get(0).QCMtype().getTexte());//marche pas
         QCMjoueur.setText(listjoueur.get(0));
         Reponse1.setText(qcm1.getRep1());
         reponse2.setText(qcm1.getRep2());
