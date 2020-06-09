@@ -1,6 +1,6 @@
 package game;
 
-public class Question<T> extends fenetre {
+public class Question<T> {
 
 
 
@@ -14,7 +14,6 @@ public class Question<T> extends fenetre {
 	    this.theme = theme;
 	    this.enonce = enonce;
 	    this.difficulty = difficulty;
-
     }
 	
     public QCM QCMtype(){
