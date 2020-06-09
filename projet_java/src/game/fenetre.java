@@ -7,6 +7,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.Comparator;
 
 public class fenetre {
     private JPanel Paneljeu;
@@ -64,10 +65,6 @@ public class fenetre {
     private JRadioButton theme4;
     private JRadioButton theme5;
     private JRadioButton theme6;
-    private JRadioButton theme7;
-    private JRadioButton theme8;
-    private JRadioButton theme9;
-    private JRadioButton theme10;
     private JButton Choisir;
     private JButton reponse1;
     private QCM qcm1;
@@ -807,7 +804,7 @@ public class fenetre {
         gbc.fill = GridBagConstraints.BOTH;
         Paneljeu.add(Choixtheme, gbc);
         Choixthemetitre = new JLabel();
-        Choixthemetitre.setText("Choisir 3 themes");
+        Choixthemetitre.setText("Choisir 2 themes");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
         gbc.gridy = 0;
@@ -869,47 +866,11 @@ public class fenetre {
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         Choixtheme.add(theme6, gbc);
-        theme7 = new JRadioButton();
-        theme7.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 7;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme7, gbc);
-        theme8 = new JRadioButton();
-        theme8.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 8;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme8, gbc);
-        theme9 = new JRadioButton();
-        theme9.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 9;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme9, gbc);
-        theme10 = new JRadioButton();
-        theme10.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 10;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme10, gbc);
         Choisir = new JButton();
         Choisir.setText("Choisir ces themes");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 11;
+        gbc.gridy = 7;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
@@ -1062,9 +1023,26 @@ public class fenetre {
     }
 
     public void debut_phase2() {
-        joueurpremier.setText(listjoueur.get(joueurjoue).getNom());
-        score1.setText(String.valueOf(listjoueur.get(joueurjoue).getScore()));
+
+        Collections.sort(listjoueur, new Comparator<Joueur>() {
+            @Override
+            public int compare(Joueur j1, Joueur j2) {
+
+                return Integer.compare(j1.getScore(), j2.getScore());
+            }
+        });
+
+        joueurpremier.setText(listjoueur.get(3).getNom());
+        score1.setText(String.valueOf(listjoueur.get(3).getScore()));
+        joueurdeuxieme.setText(listjoueur.get(2).getNom());
+        score2.setText(String.valueOf(listjoueur.get(2).getScore()));
+        joueurtroisieme.setText(listjoueur.get(1).getNom());
+        score3.setText(String.valueOf(listjoueur.get(1).getScore()));
+        joueurdernier.setText(listjoueur.get(0).getNom());
+        score4.setText(String.valueOf(listjoueur.get(0).getScore()));
         f.setContentPane(Score);
         f.revalidate();
     }
+
+
 }
