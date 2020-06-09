@@ -16,7 +16,7 @@ public class Themes {
 //        for (String str : themes_str.split(","))
 //            listThemes.add(new Theme(str));
 
-        for (int cpt = 0; cpt < this.listThemes.size(); ++cpt)
+        for (int cpt = 0; cpt < 9; ++cpt)
             this.listIndicateur.add(cpt);
 
     }
@@ -35,7 +35,7 @@ public class Themes {
 
     public int SelectionnerTheme() {
         Random rand = new Random();
-        return this.listIndicateur.remove(rand.nextInt(this.listIndicateur.size()));
+        return listIndicateur.remove(rand.nextInt(this.listIndicateur.size()));
     }
 
     public ArrayList<Integer>  SelectionnerCinqThemes() {
