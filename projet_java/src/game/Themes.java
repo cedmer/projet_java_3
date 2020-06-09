@@ -4,17 +4,17 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class Themes {
-    private ArrayList<String> listThemes;
+    private ArrayList<Theme> listThemes;
     private ArrayList<Integer> listIndicateur;
 
     public Themes() {
-        this.listThemes = new ArrayList<String>();
+        this.listThemes = new ArrayList<Theme>();
         this.listIndicateur = new ArrayList<Integer>();
 
-        String themes_str = "Sciences,Sport,Histoire,Mathematiques,Musique,Counter-strike,Cuisine,Programmation,Reseau";
+        String themes_str = "Sciences,Sport,Histoire,Mathematiques,Musique,Geographie,Cuisine,Programmation,Reseau";
 
         for (String str : themes_str.split(","))
-            listThemes.add(str);
+            listThemes.add(new Theme(str));
 
         for (int cpt = 0; cpt < this.listThemes.size(); ++cpt)
             this.listIndicateur.add(cpt);
@@ -23,7 +23,7 @@ public class Themes {
 
     public void Afficher() {
         int cpt = 0;
-        for (String theme : this.listThemes) {
+        for (Theme theme : this.listThemes) {
             System.out.print(theme + " : ");
             if (this.listIndicateur.contains(cpt))
                 System.out.println("disponible");
@@ -33,13 +33,13 @@ public class Themes {
         }
     }
 
-    public int SelectionnerTheme() {
+    public Theme SelectionnerTheme() {
         Random rand = new Random();
-        return this.listIndicateur.remove(rand.nextInt(this.listIndicateur.size()));
+        return listThemes.get(this.listIndicateur.remove(rand.nextInt(this.listIndicateur.size())));
     }
 
-    public ArrayList<Integer>  SelectionnerCinqThemes() {
-        ArrayList<Integer> listChoix = new ArrayList<Integer>();
+    public ArrayList<Theme>  SelectionnerCinqThemes() {
+        ArrayList<Theme> listChoix = new ArrayList<Theme>();
         if (this.listIndicateur.size() >= 5 ) {
             for (int cpt = 0; cpt < 5; ++cpt)
                 listChoix.add(this.SelectionnerTheme());
@@ -49,6 +49,7 @@ public class Themes {
         return listChoix;
     }
 
+    /*
     public void MofifierTheme(String nouveauTheme, String ancienTheme){
 
         for(int i=0 ; i< this.listThemes.size();i++){
@@ -57,12 +58,13 @@ public class Themes {
             }
         }
     }
+     */
 
-    public ArrayList<String> getListThemes() {
+    public ArrayList<Theme> getListThemes() {
         return listThemes;
     }
 
-    public void setListThemes(ArrayList<String> listThemes) {
+    public void setListThemes(ArrayList<Theme> listThemes) {
         this.listThemes = listThemes;
     }
 

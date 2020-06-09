@@ -74,28 +74,17 @@ public class fenetre {
     private JFrame frame = new JFrame();
 
     private ListeQuestions listetheme = new ListeQuestions();
-    private ListeQuestions listetheme1phase1 = new ListeQuestions();
-    private ListeQuestions listetheme2phase1 = new ListeQuestions();
-    private ListeQuestions listetheme3phase1 = new ListeQuestions();
-    private ListeQuestions listetheme4phase1 = new ListeQuestions();
-    private ListeQuestions listetheme5phase1 = new ListeQuestions();
-    private ListeQuestions listetheme6phase1 = new ListeQuestions();
-    private ListeQuestions listetheme7phase1 = new ListeQuestions();
-    private ListeQuestions listetheme8phase1 = new ListeQuestions();
-    private ListeQuestions listetheme9phase1 = new ListeQuestions();
-    private ListeQuestions listetheme10phase1 = new ListeQuestions();
-    private ListeQuestions listetheme1phase2 = new ListeQuestions();
-    private ListeQuestions listetheme2phase2 = new ListeQuestions();
-    private ListeQuestions listetheme3phase2 = new ListeQuestions();
-    private ListeQuestions listetheme4phase2 = new ListeQuestions();
-    private ListeQuestions listetheme5phase2 = new ListeQuestions();
-    private ListeQuestions listetheme6phase2 = new ListeQuestions();
-    private ListeQuestions listetheme7phase2 = new ListeQuestions();
-    private ListeQuestions listetheme8phase2 = new ListeQuestions();
-    private ListeQuestions listetheme9phase2 = new ListeQuestions();
-    private ListeQuestions listetheme10phase2 = new ListeQuestions();
+    private ListeQuestions listetheme1 = new ListeQuestions();
+    private ListeQuestions listetheme2 = new ListeQuestions();
+    private ListeQuestions listetheme3 = new ListeQuestions();
+    private ListeQuestions listetheme4 = new ListeQuestions();
+    private ListeQuestions listetheme5 = new ListeQuestions();
+    private ListeQuestions listetheme6 = new ListeQuestions();
+    private ListeQuestions listetheme7 = new ListeQuestions();
+    private ListeQuestions listetheme8 = new ListeQuestions();
+    private ListeQuestions listetheme9 = new ListeQuestions();
+    private ListeQuestions listetheme10 = new ListeQuestions();
     private int nbrquestionphase1 = 0;
-    private int nbrquestionphase2 = 0;
     private int nbrquestionsurletheme = 0;
     private int Theme;
     private int joueurjoue;
@@ -135,7 +124,7 @@ public class fenetre {
                     Phase = 1;
                     Theme = t.SelectionnerTheme();
                     System.out.println(Theme);
-                    Questionphase1(Theme);
+                    Question(Theme);
 
                 }
 
@@ -154,13 +143,6 @@ public class fenetre {
                     if (nbrquestionphase1 == 16) {
                         debut_phase2();
                         Phase = 2;
-                    } else {
-                        preparation();
-                    }
-                } else if (Phase == 2) {
-                    if (nbrquestionphase2 == 6) {
-                        debut_phase3();
-                        Phase = 3;
                     } else {
                         preparation();
                     }
@@ -186,13 +168,6 @@ public class fenetre {
                     } else {
                         preparation();
                     }
-                } else if (Phase == 2) {
-                    if (nbrquestionphase2 == 6) {
-                        debut_phase3();
-                        Phase = 3;
-                    } else {
-                        preparation();
-                    }
                 }
 
             }
@@ -214,13 +189,6 @@ public class fenetre {
                     } else {
                         preparation();
                     }
-                } else if (Phase == 2) {
-                    if (nbrquestionphase2 == 6) {
-                        debut_phase3();
-                        Phase = 3;
-                    } else {
-                        preparation();
-                    }
                 }
 
             }
@@ -234,6 +202,7 @@ public class fenetre {
                     temp = temp + 2;
                     listjoueur.get(joueurjoue).setScore(temp);
                 }
+                System.out.println(nbrquestionphase1);
                 if (Phase == 1) {
                     if (nbrquestionphase1 == 16) {
                         debut_phase2();
@@ -242,12 +211,6 @@ public class fenetre {
                         preparation();
                     }
                 } else if (Phase == 2) {
-                    if (nbrquestionphase2 == 6) {
-                        debut_phase3();
-                        Phase = 3;
-                    } else {
-                        preparation();
-                    }
                 }
             }
         });
@@ -260,6 +223,7 @@ public class fenetre {
                     temp = temp + 2;
                     listjoueur.get(joueurjoue).setScore(temp);
                 }
+                System.out.println(nbrquestionphase1);
                 if (Phase == 1) {
                     if (nbrquestionphase1 == 16) {
                         debut_phase2();
@@ -268,12 +232,6 @@ public class fenetre {
                         preparation();
                     }
                 } else if (Phase == 2) {
-                    if (nbrquestionphase2 == 6) {
-                        debut_phase3();
-                        Phase = 3;
-                    } else {
-                        preparation();
-                    }
                 }
             }
         });
@@ -286,6 +244,7 @@ public class fenetre {
                     temp = temp + 2;
                     listjoueur.get(joueurjoue).setScore(temp);
                 }
+                System.out.println(nbrquestionphase1);
                 if (Phase == 1) {
                     if (nbrquestionphase1 == 16) {
                         debut_phase2();
@@ -294,12 +253,6 @@ public class fenetre {
                         preparation();
                     }
                 } else if (Phase == 2) {
-                    if (nbrquestionphase2 == 6) {
-                        debut_phase3();
-                        Phase = 3;
-                    } else {
-                        preparation();
-                    }
                 }
             }
         });
@@ -316,8 +269,6 @@ public class fenetre {
                         theme2.addItem(t.getListThemes().get(listsixTheme.get(j)));
                     }
                     Choixthemeparjoueur(2);
-                } else if (Phase == 3) {
-
                 }
             }
         });
@@ -325,12 +276,7 @@ public class fenetre {
         commencer.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (Phase == 1) {
-                    Questionphase1(Theme);
-                } else if (Phase == 2) {
-                    Questionphase2();
-                }
-
+                Question(Theme);
             }
         });
 
@@ -377,9 +323,6 @@ public class fenetre {
                     } else {
                         Choixthemeparjoueur(2);
                     }
-                } else {
-                    joueurjoue = 2;
-                    preparation();
                 }
             }
         });
@@ -987,78 +930,78 @@ public class fenetre {
 
         qcm1 = new QCM("oui ou non ? ", "oui", "non", "peut-etre", "oui");
         q1 = new Question(t.getListThemes().get(0), 1, qcm1);
-        listetheme1phase1.AjouterQuestion(q1);
+        listetheme1.AjouterQuestion(q1);
         qcm2 = new QCM("comment va tu?1 ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(1), 1, qcm2);
-        listetheme2phase1.AjouterQuestion(q2);
+        listetheme2.AjouterQuestion(q2);
         vf1 = new VF("comment va tu2? ", true);
         q3 = new Question(t.getListThemes().get(2), 1, vf1);
-        listetheme3phase1.AjouterQuestion(q3);
+        listetheme3.AjouterQuestion(q3);
         qcm2 = new QCM("comment va tu3? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(3), 1, qcm2);
-        listetheme4phase1.AjouterQuestion(q2);
+        listetheme4.AjouterQuestion(q2);
         qcm2 = new QCM("comment va tu4? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(4), 1, qcm2);
-        listetheme5phase1.AjouterQuestion(q2);
+        listetheme5.AjouterQuestion(q2);
         qcm2 = new QCM("comment va tu5? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(5), 1, qcm2);
-        listetheme6phase1.AjouterQuestion(q2);
+        listetheme6.AjouterQuestion(q2);
         qcm2 = new QCM("comment va tu6? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(6), 1, qcm2);
-        listetheme7phase1.AjouterQuestion(q2);
+        listetheme7.AjouterQuestion(q2);
         qcm2 = new QCM("comment va tu7? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(7), 1, qcm2);
-        listetheme8phase1.AjouterQuestion(q2);
+        listetheme8.AjouterQuestion(q2);
         qcm2 = new QCM("comment va tu8? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(8), 1, qcm2);
-        listetheme9phase1.AjouterQuestion(q2);
+        listetheme9.AjouterQuestion(q2);
         qcm2 = new QCM("comment va tu9? ", "bien", "pas bien", "peut-etre", "bien");
         q2 = new Question(t.getListThemes().get(8), 1, qcm2);
-        listetheme10phase1.AjouterQuestion(q2);
-        Collections.shuffle(listetheme1phase1.getListQuestionstheme());//pour mélanger l'ordre des questions du premier theme
-        Collections.shuffle(listetheme2phase1.getListQuestionstheme());//pour mélanger l'ordre des questions du deuxieme theme
-        Collections.shuffle(listetheme3phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme4phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme5phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme6phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme7phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme8phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme9phase1.getListQuestionstheme());
-        Collections.shuffle(listetheme10phase1.getListQuestionstheme());
+        listetheme10.AjouterQuestion(q2);
+        Collections.shuffle(listetheme1.getListQuestionstheme());//pour mï¿½langer l'ordre des questions du premier theme
+        Collections.shuffle(listetheme2.getListQuestionstheme());//pour mï¿½langer l'ordre des questions du deuxieme theme
+        Collections.shuffle(listetheme3.getListQuestionstheme());
+        Collections.shuffle(listetheme4.getListQuestionstheme());
+        Collections.shuffle(listetheme5.getListQuestionstheme());
+        Collections.shuffle(listetheme6.getListQuestionstheme());
+        Collections.shuffle(listetheme7.getListQuestionstheme());
+        Collections.shuffle(listetheme8.getListQuestionstheme());
+        Collections.shuffle(listetheme9.getListQuestionstheme());
+        Collections.shuffle(listetheme10.getListQuestionstheme());
     }
 
-    public void Questionphase1(int theme) {
+    public void Question(int theme) {
 
         switch (theme) {
             case 0:
-                listetheme = listetheme1phase1;
+                listetheme = listetheme1;
                 break;
             case 1:
-                listetheme = listetheme2phase1;
+                listetheme = listetheme2;
                 break;
             case 2:
-                listetheme = listetheme3phase1;
+                listetheme = listetheme3;
                 break;
             case 3:
-                listetheme = listetheme4phase1;
+                listetheme = listetheme4;
                 break;
             case 4:
-                listetheme = listetheme5phase1;
+                listetheme = listetheme5;
                 break;
             case 5:
-                listetheme = listetheme6phase1;
+                listetheme = listetheme6;
                 break;
             case 6:
-                listetheme = listetheme7phase1;
+                listetheme = listetheme7;
                 break;
             case 7:
-                listetheme = listetheme8phase1;
+                listetheme = listetheme8;
                 break;
             case 8:
-                listetheme = listetheme9phase1;
+                listetheme = listetheme9;
                 break;
             case 9:
-                listetheme = listetheme10phase1;
+                listetheme = listetheme10;
                 break;
         }
 
@@ -1070,7 +1013,7 @@ public class fenetre {
             reponse1.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getRep1());
             reponse2.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getRep2());
             reponse3.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getRep3());
-            QCMNiveau.setText(String.valueOf(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).difficulty));
+            QCMNiveau.setText(String.valueOf(listetheme1.getListQuestionstheme().get(nbrquestionsurletheme).difficulty));
             f.setContentPane(QCMPanel);
             f.revalidate();
 
@@ -1093,38 +1036,23 @@ public class fenetre {
             f.revalidate();
 
         }
-        //nbrquestionsurletheme = nbrquestionsurletheme + 1;
-        nbrquestionphase1 = nbrquestionphase1 + 1;
-        //if (nbrquestionsurletheme == 4) {
-        Theme = Theme + 1;
-        if (Theme > 10) {
-            Theme = 0;
-            // }
+        if (Phase == 1) {
+            //nbrquestionsurletheme = nbrquestionsurletheme + 1;
+            nbrquestionphase1 = nbrquestionphase1 + 1;
+            //if (nbrquestionsurletheme == 4) {
+            Theme = Theme + 1;
+            if (Theme > 10) {
+                Theme = 0;
+                // }
+            }
         }
-
     }
 
     public void preparation() {
-        if (Phase == 1) {
-            joueurjoue = joueurjoue + 1;
-            if (joueurjoue == 4) {
-                joueurjoue = 0;
-            }
-        } else if (Phase == 2) {
-            if (nbrquestionphase2 == 0) {//sécurité pour gérer le premier cas ou c'est la premiere question
-
-            } else {
-                if (nbrquestionphase2 % 2 == 0) {
-                    joueurjoue = joueurjoue - 1;
-                }
-                if (joueurjoue == -1) {//sécurité pour eviter de chercher un joueur hors de la liste
-                    joueurjoue = 2;
-                }
-            }
-
-
+        joueurjoue = joueurjoue + 1;
+        if (joueurjoue == 4) {
+            joueurjoue = 0;
         }
-
         Joueurplay.setText(listjoueur.get(joueurjoue).getNom());
         f.setContentPane(Paneljoueurjouer);
         f.revalidate();
@@ -1172,97 +1100,6 @@ public class fenetre {
         joueur.setText(listjoueur.get(i).getNom());
         f.setContentPane(Choixtheme);
         f.revalidate();
-    }
-
-    public void Questionphase2() {
-        switch (listthemechoisi.get(nbrquestionphase2)) {
-            case 0:
-                listetheme = listetheme1phase1;
-                break;
-            case 1:
-                listetheme = listetheme2phase1;
-                break;
-            case 2:
-                listetheme = listetheme3phase1;
-                break;
-            case 3:
-                listetheme = listetheme4phase1;
-                break;
-            case 4:
-                listetheme = listetheme5phase1;
-                break;
-            case 5:
-                listetheme = listetheme6phase1;
-                break;
-            case 6:
-                listetheme = listetheme7phase1;
-                break;
-            case 7:
-                listetheme = listetheme8phase1;
-                break;
-            case 8:
-                listetheme = listetheme9phase1;
-                break;
-            case 9:
-                listetheme = listetheme10phase1;
-                break;
-        }
-        //listthemechoisi;
-        if (listetheme.getListQuestionstheme().get(0).enonce instanceof QCM) {
-
-            QCMQuestion.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getTexte());
-            QCMTheme.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).getTheme());
-            QCMjoueur.setText(listjoueur.get(joueurjoue).getNom());
-            reponse1.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getRep1());
-            reponse2.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getRep2());
-            reponse3.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).QCMtype().getRep3());
-            QCMNiveau.setText(String.valueOf(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).difficulty));
-            f.setContentPane(QCMPanel);
-            f.revalidate();
-
-        } else if (listetheme.getListQuestionstheme().get(0).enonce instanceof VF) {
-
-            VFQuestion.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).VFtype().getTexte());
-            VFTheme.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).getTheme());
-            VFJoueur.setText(listjoueur.get(joueurjoue).getNom());
-            VFNiveau.setText(String.valueOf(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).difficulty));
-            f.setContentPane(VFPanel);
-            f.revalidate();
-
-        } else {
-
-            RCQuestion.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).VFtype().getTexte());
-            RCTheme.setText(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).getTheme());
-            RCjoueur.setText(listjoueur.get(joueurjoue).getNom());
-            RCNiveau.setText(String.valueOf(listetheme.getListQuestionstheme().get(nbrquestionsurletheme).difficulty));
-            f.setContentPane(RCPanel);
-            f.revalidate();
-
-        }
-        nbrquestionphase2 = nbrquestionphase2 + 1;
-    }
-
-    public void debut_phase3() {
-        Collections.sort(listjoueur, new Comparator<Joueur>() {//on compare les score
-            @Override
-            public int compare(Joueur j1, Joueur j2) {
-
-                return Integer.compare(j1.getScore(), j2.getScore());
-            }
-        });
-        joueurpremier.setText(listjoueur.get(2).getNom());//on affiche le premier qui est a la fin de la liste
-        score1.setText(String.valueOf(listjoueur.get(2).getScore()));
-        joueurdeuxieme.setText(listjoueur.get(1).getNom());
-        score2.setText(String.valueOf(listjoueur.get(1).getScore()));
-        joueurtroisieme.setText(listjoueur.get(0).getNom());
-        score3.setText(String.valueOf(listjoueur.get(0).getScore()));
-        joueurdernier.setText("");
-        score4.setText("");
-        f.setContentPane(Score);
-        f.revalidate();
-        listjoueur.get(0).changerEtat("elimine");//on change son statut
-        lisjoueurelimine.add(listjoueur.get(0));//on l'ajoute dans la liste des elimine
-        listjoueur.remove(0);//on le supprime de la liste de joueur
     }
 
 
