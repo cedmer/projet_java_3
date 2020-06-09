@@ -13,8 +13,8 @@ public class Themes {
 
         String themes_str = "Sciences,Sport,Histoire,Mathematiques,Musique,Geographie,Cuisine,Programmation,Reseau";
 
-        for (String str : themes_str.split(","))
-            listThemes.add(new Theme(str));
+//        for (String str : themes_str.split(","))
+//            listThemes.add(new Theme(str));
 
         for (int cpt = 0; cpt < this.listThemes.size(); ++cpt)
             this.listIndicateur.add(cpt);
@@ -33,13 +33,13 @@ public class Themes {
         }
     }
 
-    public Theme SelectionnerTheme() {
+    public int SelectionnerTheme() {
         Random rand = new Random();
-        return listThemes.get(this.listIndicateur.remove(rand.nextInt(this.listIndicateur.size())));
+        return this.listIndicateur.remove(rand.nextInt(this.listIndicateur.size()));
     }
 
-    public ArrayList<Theme>  SelectionnerCinqThemes() {
-        ArrayList<Theme> listChoix = new ArrayList<Theme>();
+    public ArrayList<Integer>  SelectionnerCinqThemes() {
+        ArrayList<Integer> listChoix = new ArrayList<Integer>();
         if (this.listIndicateur.size() >= 5 ) {
             for (int cpt = 0; cpt < 5; ++cpt)
                 listChoix.add(this.SelectionnerTheme());

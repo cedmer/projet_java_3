@@ -9,6 +9,8 @@ import java.util.Scanner;
 
 public class Theme {
 
+
+
 	private ArrayList<Question> listQuestions = new ArrayList<Question>();
 	private String basePath = "projet_java/src/Questions/";
 
@@ -18,15 +20,17 @@ public class Theme {
 		this.listQuestions.addAll(getRC(str));
 		this.listQuestions.addAll(getVF(str));
 
-		listQuestions.get(0).afficher();
-		listQuestions.get(1).afficher();
-		listQuestions.get(2).afficher();
-		listQuestions.get(3).afficher();
-		listQuestions.get(4).afficher();
-		listQuestions.get(5).afficher();
+//		listQuestions.get(0).afficher();
+//		listQuestions.get(1).afficher();
+//		listQuestions.get(2).afficher();
+//		listQuestions.get(3).afficher();
+//		listQuestions.get(4).afficher();
+//		listQuestions.get(5).afficher();
 		
 	}
-
+	public ArrayList<Question> getListQuestions() {
+		return listQuestions;
+	}
 
 	private  ArrayList<Question> getQCM(String str){
 
@@ -65,7 +69,7 @@ public class Theme {
 		}
 
 		for(List<String> question: lines) {
-			QCM theQCM = new QCM(question.get(2),question.get(4), question.get(5), question.get(6), question.get(3));
+			QCM theQCM = new QCM(question.get(2),question.get(3), question.get(4), question.get(5), question.get(6));
 			Question<QCM> theQuestion = new Question<QCM>(question.get(0), Integer.valueOf(question.get(1)), theQCM);
 			lesQuestions.add(theQuestion);
 		}

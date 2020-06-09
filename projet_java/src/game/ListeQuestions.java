@@ -5,17 +5,20 @@ import java.util.ArrayList;
 public class ListeQuestions {
 
 
-    private ArrayList<Question> listQuestionstheme;
+    private ArrayList<Theme> listQuestionstheme;
 
     public ListeQuestions(){
-        this.listQuestionstheme = new ArrayList<Question>();
+        this.listQuestionstheme = new ArrayList<Theme>();
 
     }
 
-    public void AjouterQuestion(Question q ){
-        listQuestionstheme.add(q);
+    public void AjouterQuestionTheme(Theme t ){
+
+        listQuestionstheme.add(t);
     }
-    public ArrayList<Question> getListQuestionstheme() {
+
+    public ArrayList<Theme> getListQuestionstheme() {
+
         return listQuestionstheme;
     }
 
