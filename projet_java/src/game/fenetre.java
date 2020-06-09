@@ -59,20 +59,20 @@ public class fenetre {
     private JLabel Joueurplay;
     private JPanel Choixtheme;
     private JLabel Choixthemetitre;
-    private JRadioButton theme1;
-    private JRadioButton theme2;
-    private JRadioButton theme3;
-    private JRadioButton theme4;
-    private JRadioButton theme5;
-    private JRadioButton theme6;
+    private JComboBox theme1;
+    private JComboBox theme2;
     private JButton Choisir;
     private JButton reponse1;
+    private JLabel joueur;
     private QCM qcm1;
     private Question q1;
     private QCM qcm2;
     private Question q2;
     private VF vf1;
     private Question q3;
+    private JFrame f = new JFrame("jeu");
+    private JFrame frame = new JFrame();
+
     private ListeQuestions listetheme = new ListeQuestions();
     private ListeQuestions listetheme1 = new ListeQuestions();
     private ListeQuestions listetheme2 = new ListeQuestions();
@@ -89,14 +89,13 @@ public class fenetre {
     private int Theme;
     private int joueurjoue;
     private EnsJoueurs J = new EnsJoueurs();
-
-    private JFrame f = new JFrame("jeu");
-
-    private JFrame frame = new JFrame();
-
     private Themes t = new Themes();
     private ArrayList<Joueur> listjoueur = new ArrayList<Joueur>();
+    private ArrayList<Joueur> lisjoueurelimine = new ArrayList<>();
+    private ArrayList<Integer> listsixTheme = new ArrayList<>();
+    private ArrayList<Integer> listthemechoisi = new ArrayList<>();
     private int Phase = 0;
+    private int nbrthemechoisi = 0;
 
     public fenetre() {
         validerjoueur.addActionListener(new ActionListener() {
@@ -131,6 +130,7 @@ public class fenetre {
 
             }
         });
+
         RCValider.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -150,6 +150,7 @@ public class fenetre {
 
             }
         });
+
         VFVrai.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -171,12 +172,12 @@ public class fenetre {
 
             }
         });
+
         VFFaux.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 boolean bol = false;
                 if (Boolean.compare(bol, listetheme.getListQuestionstheme().get(nbrquestionsurletheme).VFtype().isRep()) == 0) {
-                    System.out.println("test6");
                     int temp = listjoueur.get(joueurjoue).getScore();
                     temp = temp + 2;
                     listjoueur.get(joueurjoue).setScore(temp);
@@ -192,18 +193,7 @@ public class fenetre {
 
             }
         });
-        phaseSuivante.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
 
-            }
-        });
-        commencer.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                Question(Theme);
-            }
-        });
         reponse1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -224,6 +214,7 @@ public class fenetre {
                 }
             }
         });
+
         reponse2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -244,6 +235,7 @@ public class fenetre {
                 }
             }
         });
+
         reponse3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -261,6 +253,76 @@ public class fenetre {
                         preparation();
                     }
                 } else if (Phase == 2) {
+                }
+            }
+        });
+
+        phaseSuivante.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (Phase == 2) {
+                    for (int i = 0; i < 6; i++) {
+                        listsixTheme.add(t.SelectionnerTheme());
+                    }
+                    for (int j = 0; j < 6; j++) {
+                        theme1.addItem(t.getListThemes().get(listsixTheme.get(j)));
+                        theme2.addItem(t.getListThemes().get(listsixTheme.get(j)));
+                    }
+                    Choixthemeparjoueur(2);
+                }
+            }
+        });
+
+        commencer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Question(Theme);
+            }
+        });
+
+        Choisir.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (theme1.getSelectedItem().equals(theme2.getSelectedItem())) {
+                    JOptionPane.showMessageDialog(frame, "Veuiller choisir deux theme differents");
+                } else {
+
+                    nbrthemechoisi = nbrthemechoisi + 2;
+
+                    for (int i = 0; i < 9; i++) {
+                        if (t.getListThemes().get(i).equals(theme1.getSelectedItem())) {
+                            listthemechoisi.add(i);
+                            for (int j = 0; j < 5; j++) {
+                                if (t.getListThemes().get(listsixTheme.get(j)).equals(theme1.getSelectedItem())) {
+                                    System.out.println("test" + theme1.getSelectedItem());
+                                    listsixTheme.remove(j);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                    for (int i = 0; i < 9; i++) {
+                        if (t.getListThemes().get(i).equals(theme2.getSelectedItem())) {
+                            listthemechoisi.add(i);
+                            for (int j = 0; j < 5; j++) {
+                                if (t.getListThemes().get(listsixTheme.get(j)).equals(theme2.getSelectedItem())) {
+                                    System.out.println("test" + theme2.getSelectedItem());
+                                    listsixTheme.remove(j);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                if (nbrthemechoisi != 6) {
+                    if (nbrthemechoisi == 2) {
+                        System.out.println("nbr:" + nbrthemechoisi);
+                        Choixthemeparjoueur(1);
+                    } else if (nbrthemechoisi == 4) {
+                        Choixthemeparjoueur(0);
+                    } else {
+                        Choixthemeparjoueur(2);
+                    }
                 }
             }
         });
@@ -503,15 +565,6 @@ public class fenetre {
         gbc.weightx = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         RCPanel.add(RCQuestion, gbc);
-        RCreponse = new JTextArea();
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        gbc.gridwidth = 3;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.BOTH;
-        RCPanel.add(RCreponse, gbc);
         RCValider = new JButton();
         RCValider.setText("Valider");
         gbc = new GridBagConstraints();
@@ -565,6 +618,15 @@ public class fenetre {
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         RCPanel.add(label8, gbc);
+        RCreponse = new JTextArea();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 3;
+        gbc.gridwidth = 3;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.BOTH;
+        RCPanel.add(RCreponse, gbc);
         VFPanel = new JPanel();
         VFPanel.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -579,34 +641,16 @@ public class fenetre {
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 0;
-        gbc.gridwidth = 6;
+        gbc.gridwidth = 21;
         gbc.weightx = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         VFPanel.add(VFJoueur, gbc);
-        VFVrai = new JButton();
-        VFVrai.setText("Vrai");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 1;
-        gbc.gridy = 3;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        VFPanel.add(VFVrai, gbc);
-        VFFaux = new JButton();
-        VFFaux.setText("Faux");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 3;
-        gbc.gridy = 3;
-        gbc.gridwidth = 4;
-        gbc.weighty = 1.0;
-        gbc.fill = GridBagConstraints.HORIZONTAL;
-        VFPanel.add(VFFaux, gbc);
         VFQuestion = new JLabel();
         VFQuestion.setText("Question");
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 2;
-        gbc.gridwidth = 6;
+        gbc.gridwidth = 21;
         gbc.weightx = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         VFPanel.add(VFQuestion, gbc);
@@ -615,14 +659,14 @@ public class fenetre {
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 1;
-        gbc.gridwidth = 3;
+        gbc.gridwidth = 18;
         gbc.weightx = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         VFPanel.add(VFTheme, gbc);
         VFNiveau = new JLabel();
         VFNiveau.setText("Niveau");
         gbc = new GridBagConstraints();
-        gbc.gridx = 5;
+        gbc.gridx = 20;
         gbc.gridy = 1;
         gbc.gridwidth = 2;
         gbc.anchor = GridBagConstraints.WEST;
@@ -651,16 +695,29 @@ public class fenetre {
         final JLabel label12 = new JLabel();
         label12.setText("Niveau : ");
         gbc = new GridBagConstraints();
-        gbc.gridx = 4;
+        gbc.gridx = 19;
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         VFPanel.add(label12, gbc);
-        final JPanel spacer1 = new JPanel();
+        VFFaux = new JButton();
+        VFFaux.setText("Faux");
         gbc = new GridBagConstraints();
-        gbc.gridx = 2;
+        gbc.gridx = 8;
         gbc.gridy = 3;
-        gbc.fill = GridBagConstraints.VERTICAL;
-        VFPanel.add(spacer1, gbc);
+        gbc.gridwidth = 14;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        VFPanel.add(VFFaux, gbc);
+        VFVrai = new JButton();
+        VFVrai.setText("Vrai");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 3;
+        gbc.gridwidth = 8;
+        gbc.weightx = 1.0;
+        gbc.weighty = 1.0;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        VFPanel.add(VFVrai, gbc);
         Score = new JPanel();
         Score.setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -804,77 +861,56 @@ public class fenetre {
         gbc.fill = GridBagConstraints.BOTH;
         Paneljeu.add(Choixtheme, gbc);
         Choixthemetitre = new JLabel();
-        Choixthemetitre.setText("Choisir 2 themes");
+        Choixthemetitre.setText(" Choisis 2 themes");
         gbc = new GridBagConstraints();
-        gbc.gridx = 0;
+        gbc.gridx = 2;
         gbc.gridy = 0;
+        gbc.gridwidth = 2;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.anchor = GridBagConstraints.WEST;
         Choixtheme.add(Choixthemetitre, gbc);
-        theme1 = new JRadioButton();
-        theme1.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 1;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme1, gbc);
-        theme2 = new JRadioButton();
-        theme2.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 2;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme2, gbc);
-        theme3 = new JRadioButton();
-        theme3.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 3;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme3, gbc);
-        theme4 = new JRadioButton();
-        theme4.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 4;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme4, gbc);
-        theme5 = new JRadioButton();
-        theme5.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 5;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme5, gbc);
-        theme6 = new JRadioButton();
-        theme6.setText("RadioButton");
-        gbc = new GridBagConstraints();
-        gbc.gridx = 0;
-        gbc.gridy = 6;
-        gbc.weightx = 1.0;
-        gbc.weighty = 1.0;
-        gbc.anchor = GridBagConstraints.WEST;
-        Choixtheme.add(theme6, gbc);
         Choisir = new JButton();
         Choisir.setText("Choisir ces themes");
         gbc = new GridBagConstraints();
         gbc.gridx = 0;
-        gbc.gridy = 7;
+        gbc.gridy = 3;
+        gbc.gridwidth = 4;
         gbc.weightx = 1.0;
         gbc.weighty = 1.0;
         gbc.fill = GridBagConstraints.HORIZONTAL;
         Choixtheme.add(Choisir, gbc);
+        theme1 = new JComboBox();
+        final DefaultComboBoxModel defaultComboBoxModel1 = new DefaultComboBoxModel();
+        theme1.setModel(defaultComboBoxModel1);
+        gbc = new GridBagConstraints();
+        gbc.gridx = 3;
+        gbc.gridy = 1;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        Choixtheme.add(theme1, gbc);
+        theme2 = new JComboBox();
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 2;
+        gbc.gridwidth = 3;
+        gbc.anchor = GridBagConstraints.WEST;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        Choixtheme.add(theme2, gbc);
+        joueur = new JLabel();
+        joueur.setText("Label");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 1;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        Choixtheme.add(joueur, gbc);
+        final JLabel label14 = new JLabel();
+        label14.setText("Joueur ");
+        gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.anchor = GridBagConstraints.WEST;
+        Choixtheme.add(label14, gbc);
     }
 
     /**
@@ -1023,16 +1059,14 @@ public class fenetre {
     }
 
     public void debut_phase2() {
-
-        Collections.sort(listjoueur, new Comparator<Joueur>() {
+        Collections.sort(listjoueur, new Comparator<Joueur>() {//on compare les score
             @Override
             public int compare(Joueur j1, Joueur j2) {
 
                 return Integer.compare(j1.getScore(), j2.getScore());
             }
         });
-
-        joueurpremier.setText(listjoueur.get(3).getNom());
+        joueurpremier.setText(listjoueur.get(3).getNom());//on affiche le premier qui est a la fin de la liste
         score1.setText(String.valueOf(listjoueur.get(3).getScore()));
         joueurdeuxieme.setText(listjoueur.get(2).getNom());
         score2.setText(String.valueOf(listjoueur.get(2).getScore()));
@@ -1041,6 +1075,30 @@ public class fenetre {
         joueurdernier.setText(listjoueur.get(0).getNom());
         score4.setText(String.valueOf(listjoueur.get(0).getScore()));
         f.setContentPane(Score);
+        f.revalidate();
+        listjoueur.get(0).changerEtat("elimine");//on change son statut
+        lisjoueurelimine.add(listjoueur.get(0));//on l'ajoute dans la liste des elimine
+        listjoueur.remove(0);//on le supprime de la liste de joueur
+    }
+
+    public void Choixthemeparjoueur(int i) {
+        if (i == 1) {
+            theme1.removeAllItems();
+            theme2.removeAllItems();
+            for (int j = 0; j < 4; j++) {
+                theme1.addItem(t.getListThemes().get(listsixTheme.get(j)));
+                theme2.addItem(t.getListThemes().get(listsixTheme.get(j)));
+            }
+        } else if (i == 0) {
+            theme1.removeAllItems();
+            theme2.removeAllItems();
+            for (int j = 0; j < 2; j++) {
+                theme1.addItem(t.getListThemes().get(listsixTheme.get(j)));
+                theme2.addItem(t.getListThemes().get(listsixTheme.get(j)));
+            }
+        }
+        joueur.setText(listjoueur.get(i).getNom());
+        f.setContentPane(Choixtheme);
         f.revalidate();
     }
 
