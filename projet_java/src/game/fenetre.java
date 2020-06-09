@@ -419,27 +419,27 @@ public class fenetre {
                     nbrthemechoisi = nbrthemechoisi + 2;
 
                     for (int i = 0; i < 9; i++) {
-                        //if (t.getListThemes().get(i).equals(theme1.getSelectedItem())) {
+                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).equals(theme1.getSelectedItem())) {
                             listthemechoisi.add(i);
                             for (int j = 0; j < 5; j++) {
-                               // if (t.getListThemes().get(listsixTheme.get(j)).equals(theme1.getSelectedItem())) {
+                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).equals(theme1.getSelectedItem())) {
                                     System.out.println("test" + theme1.getSelectedItem());
                                     listsixTheme.remove(j);
                                     break;
-                               // }
-                         //   }
+                               }
+                            }
                         }
                     }
                     for (int i = 0; i < 9; i++) {
-                       // if (t.getListThemes().get(i).equals(theme2.getSelectedItem())) {
+                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).equals(theme2.getSelectedItem())) {
                             listthemechoisi.add(i);
                             for (int j = 0; j < 5; j++) {
-                                //if (t.getListThemes().get(listsixTheme.get(j)).equals(theme2.getSelectedItem())) {
+                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).equals(theme2.getSelectedItem())) {
                                     System.out.println("test" + theme2.getSelectedItem());
                                     listsixTheme.remove(j);
                                     break;
-                                //}
-                           // }
+                                }
+                           }
                         }
                     }
                 }
@@ -1192,15 +1192,15 @@ public class fenetre {
             theme1.removeAllItems();
             theme2.removeAllItems();
             for (int j = 0; j < 4; j++) {
-                theme1.addItem(t.getListThemes().get(listsixTheme.get(j)));
-                theme2.addItem(t.getListThemes().get(listsixTheme.get(j)));
+                theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
+                theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
             }
         } else if (i == 0) {
             theme1.removeAllItems();
             theme2.removeAllItems();
             for (int j = 0; j < 2; j++) {
-               theme1.addItem(t.getListThemes().get(listsixTheme.get(j)));
-               theme2.addItem(t.getListThemes().get(listsixTheme.get(j)));
+               theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
+               theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
             }
         }
         joueur.setText(listjoueur.get(i).getNom());

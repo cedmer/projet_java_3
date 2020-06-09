@@ -3,7 +3,7 @@ package game;
 public class Main {
     public static void main(String[] args) {
         
-    	Theme theme = new Theme("Cuisine");
+    	//Theme theme = new Theme("Cuisine");
 
        //ListeQuestions listethemephase1 = new ListeQuestions();
        //listethemephase1.AjouterQuestionTheme(theme);
