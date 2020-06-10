@@ -1,2 +1,3 @@
 Reseau,1,Peut-on relier directement 2 PC avec un cable réseau ?,true
 Reseau,2,Certains fabricants proposent de coupler 2 prises réseau 1gb/s pour profiter d'un débit de 2Gb/s,true
+Reseau,3,Reseau sans fil/radio/ad hoc/wifi utilisent les ondes radio pour envoyer des donnees,true
