@@ -24,6 +24,7 @@ public class FenetreQuestion {
 		panelQuestion.setLayout(new GridLayout(6,1));
 		frameQuestions.setTitle("Liste des questions du theme : " + str);
 		frameQuestions.setSize(1400,200);
+		frameQuestions.setLocationRelativeTo(null);
 		frameQuestions.setVisible(true);
 
 		//for QCM

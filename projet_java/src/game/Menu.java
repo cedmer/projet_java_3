@@ -18,6 +18,7 @@ public class Menu {
 		panelThemes.setLayout(new GridLayout(5,2));
 		frameAccueil.setTitle("Jeu de questions reponses");
 		frameAccueil.setSize(400,300);
+		frameAccueil.setLocationRelativeTo(null);
 		frameAccueil.setVisible(true);
 		JLabel labelJeu = new JLabel("Voici les thèmes disponibles :");
 		JButton theme1 = new JButton("Sciences");
