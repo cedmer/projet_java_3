@@ -471,6 +471,10 @@ public class fenetre {
                     Collections.shuffle(listthemephase3);
                     preparation();
                 }
+                else if(Phase == 0){
+                    Menu m = new Menu();
+                    f.dispose();
+                }
             }
         });
 
