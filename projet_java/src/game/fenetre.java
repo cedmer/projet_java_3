@@ -1143,7 +1143,7 @@ public class fenetre {
         f.setContentPane(Choixjoueur);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
-        f.setPreferredSize(new Dimension(300, 300));
+        f.setPreferredSize(new Dimension(600, 400));
         f.pack();
         f.setVisible(true);
 

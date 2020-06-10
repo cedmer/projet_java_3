@@ -1,4 +1,4 @@
-Reseau,1,Peut-on se faire infecter par un virus ...,En allant sur un site web?,En regardant un film ?,En jouant au solitaire ?,En travaillant son projet Java ?
-Reseau,1,Que veux dire SSL ?,Secure Socket Layer,Silverlight Systeme Licensing,Special System Link,Software System Layer
-Reseau,1,Quel norme IP est la plus utilisée actuellement ?,IPV4,IPV6,LAN,WAN
-Reseau,3,Pour faire communiquer 2 PC avec les IP 192.168.0.1 et 172.10.0.23 je dois utiliser :,Un routeur,Un modem,Un switch,Internet
+Reseau,1,Peut-on se faire infecter par un virus ...,En allant sur un site web?,En regardant un film ?,En jouant au solitaire ?,En allant sur un site web?
+Reseau,1,Que veux dire SSL ?,Secure Socket Layer,Silverlight Systeme Licensing,Special System Link,Secure Socket Layer
+Reseau,1,Quel norme IP est la plus utilisée actuellement ?,IPV4,IPV6,LAN,IPV4
+Reseau,3,Pour faire communiquer 2 PC avec les IP 192.168.0.1 et 172.10.0.23 je dois utiliser :,Un routeur,Un modem,Un switch,Un routeur
