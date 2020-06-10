@@ -18,10 +18,9 @@ public class FenetreQuestion {
 	private String basePath = "projet_java/src/Questions/";
 
 	public FenetreQuestion(String str) {
-		System.out.print(str);
 		JFrame frameQuestions = new JFrame();
 		JPanel panelQuestion = new JPanel();
-		panelQuestion.setLayout(new GridLayout(6,1));
+		panelQuestion.setLayout(new GridLayout(0,3));
 		frameQuestions.setTitle("Liste des questions du theme : " + str);
 		frameQuestions.setSize(1400,200);
 		frameQuestions.setVisible(true);
@@ -49,7 +48,6 @@ public class FenetreQuestion {
 		}
 
 		for(List<String> question: lines) {
-			System.out.print("add a QCM");
 			QCM theQCM = new QCM(question.get(2),question.get(3), question.get(4), question.get(5), question.get(6));
 			Question<QCM> theQuestion = new Question<QCM>(question.get(0), Integer.valueOf(question.get(1)), theQCM);
 			lesQuestions.add(theQuestion);
@@ -78,7 +76,6 @@ public class FenetreQuestion {
 
 
 		for(List<String> question: lines) {
-			System.out.print("add a RC");
 			RC theRC = new RC(question.get(2), question.get(3));
 			Question<RC> theQuestion = new Question<RC>(question.get(0), Integer.valueOf(question.get(1)), theRC);
 			lesQuestions.add(theQuestion);
@@ -106,18 +103,53 @@ public class FenetreQuestion {
 		}
 
 		for(List<String> question: lines) {
-			System.out.print("add a VF");
 			VF theVF = new VF(question.get(2),Boolean.parseBoolean(question.get(3)));
 			Question<VF> theQuestion = new Question<VF>(question.get(0), Integer.valueOf(question.get(1)), theVF);
 			lesQuestions.add(theQuestion);
 		}
 		
-		
+		ArrayList<Question> Q1 = new ArrayList<Question>();
+		JPanel panelQ1 = new JPanel();
+		panelQ1.setLayout(new GridLayout(10,0));
+		panelQ1.add(new JLabel("Question de niveau 1 :"));
+		ArrayList<Question> Q2 = new ArrayList<Question>();
+		JPanel panelQ2 = new JPanel();
+		panelQ2.setLayout(new GridLayout(10,0));
+		panelQ2.add(new JLabel("Question de niveau 2 :"));
+		ArrayList<Question> Q3 = new ArrayList<Question>();
+		JPanel panelQ3 = new JPanel();
+		panelQ3.setLayout(new GridLayout(10,0));
+		panelQ3.add(new JLabel("Question de niveau 3 :"));
 	
 		for(Question question: lesQuestions) {
-			System.out.println(question.toString());
-			panelQuestion.add(new JLabel(question.toString()));
+			//System.out.println(question.toString());
+			switch(question.difficulty){
+			case 1:
+				Q1.add(question);
+				break;
+			case 2:
+				Q2.add(question);
+				break;
+			case 3:
+				Q3.add(question);
+				break;
+			}
+
+			
+			
 		}
+		for(Question question: Q1) {
+			panelQ1.add(new JLabel(question.toString()));
+		}
+		for(Question question: Q2) {
+			panelQ2.add(new JLabel(question.toString()));
+		}
+		for(Question question: Q3) {
+			panelQ3.add(new JLabel(question.toString()));
+		}
+		panelQuestion.add(panelQ1);
+		panelQuestion.add(panelQ2);
+		panelQuestion.add(panelQ3);
 		frameQuestions.add(panelQuestion);
 	}
 

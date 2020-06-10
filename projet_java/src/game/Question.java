@@ -77,6 +77,6 @@ public class Question<T> {
 
 	@Override
 	public String toString() {
-		return "Question [difficulty=" + difficulty + ", enonce=" + enonce.toString() + "]";
+		return enonce.toString();
 	}
 }
