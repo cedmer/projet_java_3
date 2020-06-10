@@ -5,8 +5,7 @@ public class Main {
 
     	
 
-    	fenetre f = new fenetre();
-        f.init();
+    	Menu m = new Menu();
 
     }
 }
