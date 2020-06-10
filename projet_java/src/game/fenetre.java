@@ -419,33 +419,34 @@ public class fenetre {
                     nbrthemechoisi = nbrthemechoisi + 2;
 
                     for (int i = 0; i < 9; i++) {
-                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).equals(theme1.getSelectedItem())) {
+                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).theme.equals(theme1.getSelectedItem())) {
                             listthemechoisi.add(i);
                             for (int j = 0; j < 5; j++) {
-                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).equals(theme1.getSelectedItem())) {
+                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme.equals(theme1.getSelectedItem())) {
                                     System.out.println("test" + theme1.getSelectedItem());
                                     listsixTheme.remove(j);
+
                                     break;
                                }
                             }
                         }
                     }
                     for (int i = 0; i < 9; i++) {
-                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).equals(theme2.getSelectedItem())) {
+                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).theme.equals(theme2.getSelectedItem())) {
                             listthemechoisi.add(i);
                             for (int j = 0; j < 5; j++) {
-                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).equals(theme2.getSelectedItem())) {
+                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme.equals(theme2.getSelectedItem())) {
                                     System.out.println("test" + theme2.getSelectedItem());
                                     listsixTheme.remove(j);
+
                                     break;
                                 }
-                           }
+                            }
                         }
                     }
                 }
                 if (nbrthemechoisi != 6) {
                     if (nbrthemechoisi == 2) {
-                        System.out.println("nbr:" + nbrthemechoisi);
                         Choixthemeparjoueur(1);
                     } else if (nbrthemechoisi == 4) {
                         Choixthemeparjoueur(0);
@@ -1209,13 +1210,14 @@ public class fenetre {
     }
 
     public void Questionphase2() {
-        Theme = listthemechoisi.get(0);
+        System.out.println(listthemechoisi.get(0));
+        Theme = listthemechoisi.get(nbrquestionphase2);
 
         //listthemechoisi;
         if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(0).enonce instanceof QCM) {
 
             QCMQuestion.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(0).QCMtype().getTexte());
-            QCMTheme.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(0).getTheme());
+            QCMTheme.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(2).getTheme());
             QCMjoueur.setText(listjoueur.get(joueurjoue).getNom());
             reponse1.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(0).QCMtype().getRep1());
             reponse2.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(0).QCMtype().getRep2());
