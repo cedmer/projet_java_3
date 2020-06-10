@@ -19,19 +19,26 @@ public class Menu {
 		frameAccueil.setTitle("Jeu de questions reponses");
 		frameAccueil.setSize(400,300);
 		frameAccueil.setVisible(true);
-		JLabel labelAhh = new JLabel("Voici les thèmes disponibles : ");
 		JLabel labelJeu = new JLabel("Voici les thèmes disponibles :");
-		JLabel theme1 = new JLabel("Sciences");
-		JLabel theme2 = new JLabel("Sport");
-		JLabel theme3 = new JLabel("Histoire");
-		JLabel theme4 = new JLabel("Mathematiques");
-		JLabel theme5 = new JLabel("Musique");
-		JLabel theme6 = new JLabel("Geographie");
-		JLabel theme7 = new JLabel("Cuisine");
-		JLabel theme8 = new JLabel("Programmation");
-		JLabel theme9 = new JLabel("Reseau");
+		JButton theme1 = new JButton("Sciences");
+		theme1.putClientProperty("theme", "Sciences");
+		JButton theme2 = new JButton("Sport");
+		theme2.putClientProperty("theme", "Sport");
+		JButton theme3 = new JButton("Histoire");
+		theme3.putClientProperty("theme", "Histoire");
+		JButton theme4 = new JButton("Mathematiques");
+		theme4.putClientProperty("theme", "Mathematiques");
+		JButton theme5 = new JButton("Musique");
+		theme5.putClientProperty("theme", "Musique");
+		JButton theme6 = new JButton("Geographie");
+		theme6.putClientProperty("theme", "Geographie");
+		JButton theme7 = new JButton("Cuisine");
+		theme7.putClientProperty("theme", "Cuisine");
+		JButton theme8 = new JButton("Programmation");
+		theme8.putClientProperty("theme", "Programmation");
+		JButton theme9 = new JButton("Reseau");
+		theme1.putClientProperty("theme", "Reseau");
 		frameAccueil.add(labelJeu, BorderLayout.NORTH);
-		frameAccueil.add(labelAhh);
 		panelThemes.add(theme1);
 		panelThemes.add(theme2);
 		panelThemes.add(theme3);
@@ -58,6 +65,78 @@ public class Menu {
 		//for(int i = 0; i<=listeThemes.getListThemes().size();i++) {
 		//	System.out.println(listeThemes.get(i));
 		//}
+		
+		theme1.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme1.getClientProperty("theme")));
+			}
+        });
+		
+		theme2.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme2.getClientProperty("theme")));
+			}
+        });
+		
+		theme3.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme3.getClientProperty("theme")));
+			}
+        });
+		
+		theme4.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme4.getClientProperty("theme")));
+			}
+        });
+		
+		theme5.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme5.getClientProperty("theme")));
+			}
+        });
+		
+		theme6.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme6.getClientProperty("theme")));
+			}
+        });
+		
+		theme7.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme7.getClientProperty("theme")));
+			}
+        });
+		
+		theme8.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme8.getClientProperty("theme")));
+			}
+        });
+		
+		theme9.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+		    	FenetreQuestion f = new FenetreQuestion(String.valueOf(theme9.getClientProperty("theme")));
+			}
+        });
 		
 		
 		frameAccueil.add(panelThemes);

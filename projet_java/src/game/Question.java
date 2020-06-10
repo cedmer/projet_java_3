@@ -41,6 +41,7 @@ public class Question<T> {
             ((RC) enonce).afficherQuestion();
         }
     }
+	
 
     public int getNumero() {
         return numero;
@@ -73,4 +74,9 @@ public class Question<T> {
     public void setenonce(T enonce) {
         this.enonce = enonce;
     }
+
+	@Override
+	public String toString() {
+		return "Question [difficulty=" + difficulty + ", enonce=" + enonce.toString() + "]";
+	}
 }

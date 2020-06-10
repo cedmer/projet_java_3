@@ -32,4 +32,9 @@ public class QCM {
 
     	System.out.println("La question est : " + getTexte());
     }
+
+	@Override
+	public String toString() {
+		return texte;
+	}
 }

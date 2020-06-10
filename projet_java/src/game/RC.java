@@ -28,5 +28,10 @@ public class RC {
     public void afficherQuestion() {
         System.out.println("La question est : " + getTexte());
     }
+    
+    @Override
+	public String toString() {
+		return texte;
+	}
 }
 
