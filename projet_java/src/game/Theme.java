@@ -2,10 +2,7 @@ package game;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Theme {
 
@@ -20,6 +17,7 @@ public class Theme {
 		this.listQuestions.addAll(getRC(str));
 		this.listQuestions.addAll(getVF(str));
 
+		Collections.shuffle(listQuestions);
 //		listQuestions.get(0).afficher();
 //		listQuestions.get(1).afficher();
 //		listQuestions.get(2).afficher();
