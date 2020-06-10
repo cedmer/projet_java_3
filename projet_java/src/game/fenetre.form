@@ -2,7 +2,7 @@
 <form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="game.fenetre">
   <grid id="27dc6" binding="Paneljeu" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="20" width="1109" height="1144"/>
+      <xy x="20" y="14" width="1090" height="799"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -124,33 +124,6 @@
               <text value="Question : "/>
             </properties>
           </component>
-          <component id="69402" class="javax.swing.JRadioButton" binding="Reponse1">
-            <constraints>
-              <grid row="3" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="31a6c" class="javax.swing.JRadioButton" binding="reponse2">
-            <constraints>
-              <grid row="4" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="55af2" class="javax.swing.JRadioButton" binding="reponse3">
-            <constraints>
-              <grid row="5" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
           <component id="a2343" class="javax.swing.JLabel" binding="QCMTheme">
             <constraints>
               <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
@@ -205,13 +178,31 @@
               <text value="Question : "/>
             </properties>
           </component>
-          <component id="80eb6" class="javax.swing.JButton" binding="QCMValider">
+          <component id="4530a" class="javax.swing.JButton" binding="reponse1">
             <constraints>
-              <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
+              <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
             </constraints>
             <properties>
-              <text value="Valider"/>
+              <text value="Button"/>
+            </properties>
+          </component>
+          <component id="7cd66" class="javax.swing.JButton" binding="reponse2">
+            <constraints>
+              <grid row="4" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Button"/>
+            </properties>
+          </component>
+          <component id="50d1" class="javax.swing.JButton" binding="reponse3">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Button"/>
             </properties>
           </component>
         </children>
@@ -297,7 +288,7 @@
               <text value="Joueur"/>
             </properties>
           </component>
-          <component id="5a88b" class="javax.swing.JButton" binding="QCMVrai">
+          <component id="5a88b" class="javax.swing.JButton" binding="VFVrai">
             <constraints>
               <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="1.0" weighty="1.0"/>
@@ -306,7 +297,7 @@
               <text value="Vrai"/>
             </properties>
           </component>
-          <component id="53eba" class="javax.swing.JButton" binding="QCMFaux">
+          <component id="53eba" class="javax.swing.JButton" binding="VFFaux">
             <constraints>
               <grid row="3" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="0.0" weighty="1.0"/>
@@ -452,22 +443,31 @@
         <properties/>
         <border type="none"/>
         <children>
-          <component id="e6ef" class="javax.swing.JButton" binding="commencer">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="Commencer"/>
-            </properties>
-          </component>
           <component id="fae1f" class="javax.swing.JLabel" binding="Joueurplay">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Joueur machin a toi de jouer"/>
+            </properties>
+          </component>
+          <component id="b160e" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Joueur : "/>
+            </properties>
+          </component>
+          <component id="e6ef" class="javax.swing.JButton" binding="commencer">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <text value="Commencer"/>
             </properties>
           </component>
         </children>
@@ -482,110 +482,52 @@
         <children>
           <component id="78b6a" class="javax.swing.JLabel" binding="Choixthemetitre">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <grid row="0" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
               <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
-              <text value="Choisir 3 themes"/>
-            </properties>
-          </component>
-          <component id="98b2" class="javax.swing.JRadioButton" binding="theme1">
-            <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="6a7ef" class="javax.swing.JRadioButton" binding="theme2">
-            <constraints>
-              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="b5b05" class="javax.swing.JRadioButton" binding="theme3">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="29109" class="javax.swing.JRadioButton" binding="theme4">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="365a8" class="javax.swing.JRadioButton" binding="theme5">
-            <constraints>
-              <grid row="5" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="d30bc" class="javax.swing.JRadioButton" binding="theme6">
-            <constraints>
-              <grid row="6" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="85ccd" class="javax.swing.JRadioButton" binding="theme7">
-            <constraints>
-              <grid row="7" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="560e3" class="javax.swing.JRadioButton" binding="theme8">
-            <constraints>
-              <grid row="8" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="bc973" class="javax.swing.JRadioButton" binding="theme9">
-            <constraints>
-              <grid row="9" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
-            </properties>
-          </component>
-          <component id="a59cd" class="javax.swing.JRadioButton" binding="theme10">
-            <constraints>
-              <grid row="10" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties>
-              <text value="RadioButton"/>
+              <text value=" Choisis 2 themes"/>
             </properties>
           </component>
           <component id="f1df3" class="javax.swing.JButton" binding="Choisir">
             <constraints>
-              <grid row="11" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <grid row="3" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
               <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Choisir ces themes"/>
+            </properties>
+          </component>
+          <component id="fd68d" class="javax.swing.JComboBox" binding="theme1">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="f196a" class="javax.swing.JComboBox" binding="theme2">
+            <constraints>
+              <grid row="2" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="f1460" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Joueur "/>
+            </properties>
+          </component>
+          <component id="52663" class="javax.swing.JLabel" binding="joueur">
+            <constraints>
+              <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Label"/>
             </properties>
           </component>
         </children>
