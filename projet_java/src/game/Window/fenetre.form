@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="game.fenetre">
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="game.Window.fenetre">
   <grid id="27dc6" binding="Paneljeu" layout-manager="GridBagLayout">
     <constraints>
-      <xy x="20" y="14" width="1090" height="799"/>
+      <xy x="83" y="14" width="1090" height="1132"/>
     </constraints>
     <properties/>
     <border type="none"/>
@@ -217,8 +217,8 @@
         <children>
           <component id="9c2d0" class="javax.swing.JLabel" binding="RCjoueur">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="0" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Joueur"/>
@@ -226,35 +226,17 @@
           </component>
           <component id="68611" class="javax.swing.JLabel" binding="RCQuestion">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="2" column="1" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Question"/>
             </properties>
           </component>
-          <component id="3ef54" class="javax.swing.JTextArea" binding="RCreponse">
-            <constraints>
-              <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="6" hsize-policy="6" anchor="0" fill="3" indent="0" use-parent-layout="false">
-                <preferred-size width="150" height="50"/>
-              </grid>
-              <gridbag weightx="1.0" weighty="1.0"/>
-            </constraints>
-            <properties/>
-          </component>
-          <component id="e6408" class="javax.swing.JButton" binding="RCValider">
-            <constraints>
-              <grid row="4" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
-            </constraints>
-            <properties>
-              <text value="Valider"/>
-            </properties>
-          </component>
           <component id="bd6ed" class="javax.swing.JLabel" binding="RCTheme">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Theme"/>
@@ -262,16 +244,71 @@
           </component>
           <component id="abdac" class="javax.swing.JLabel" binding="RCNiveau">
             <constraints>
-              <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="1" column="3" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
             </constraints>
             <properties>
               <text value="Niveau"/>
             </properties>
           </component>
+          <component id="aea9f" class="javax.swing.JTextField" binding="RCreponse">
+            <constraints>
+              <grid row="5" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="6" anchor="8" fill="1" indent="0" use-parent-layout="false">
+                <preferred-size width="150" height="-1"/>
+              </grid>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties/>
+          </component>
+          <component id="58c80" class="javax.swing.JButton" binding="RCValider">
+            <constraints>
+              <grid row="6" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="1.0" weighty="1.0"/>
+            </constraints>
+            <properties>
+              <text value="Valider"/>
+            </properties>
+          </component>
+          <component id="e59f6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Joueur :"/>
+            </properties>
+          </component>
+          <component id="d0ec6" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Theme :"/>
+            </properties>
+          </component>
+          <component id="c1435" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Question :"/>
+            </properties>
+          </component>
+          <component id="27301" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="2" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+              <gridbag weightx="0.0" weighty="0.0"/>
+            </constraints>
+            <properties>
+              <text value="Niveau :"/>
+            </properties>
+          </component>
         </children>
       </grid>
-      <grid id="738fe" binding="VFPanel" layout-manager="GridBagLayout">
+      <grid id="738fe" binding="VFPanel" layout-manager="GridLayoutManager" row-count="4" column-count="9" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+        <margin top="0" left="0" bottom="0" right="0"/>
         <constraints>
           <grid row="2" column="3" row-span="1" col-span="1" vsize-policy="3" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
           <gridbag weightx="1.0" weighty="1.0"/>
@@ -281,8 +318,7 @@
         <children>
           <component id="9705b" class="javax.swing.JLabel" binding="VFJoueur">
             <constraints>
-              <grid row="0" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="0" column="1" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Joueur"/>
@@ -290,8 +326,7 @@
           </component>
           <component id="5a88b" class="javax.swing.JButton" binding="VFVrai">
             <constraints>
-              <grid row="3" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="1.0"/>
+              <grid row="3" column="0" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Vrai"/>
@@ -299,8 +334,7 @@
           </component>
           <component id="53eba" class="javax.swing.JButton" binding="VFFaux">
             <constraints>
-              <grid row="3" column="2" row-span="1" col-span="3" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="1.0"/>
+              <grid row="3" column="5" row-span="1" col-span="4" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Faux"/>
@@ -308,8 +342,7 @@
           </component>
           <component id="bf85e" class="javax.swing.JLabel" binding="VFQuestion">
             <constraints>
-              <grid row="2" column="0" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="2" column="1" row-span="1" col-span="8" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Question"/>
@@ -317,8 +350,7 @@
           </component>
           <component id="85d2a" class="javax.swing.JLabel" binding="VFTheme">
             <constraints>
-              <grid row="1" column="0" row-span="1" col-span="3" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="1.0" weighty="0.0"/>
+              <grid row="1" column="1" row-span="1" col-span="5" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Theme"/>
@@ -326,13 +358,49 @@
           </component>
           <component id="d3fd" class="javax.swing.JLabel" binding="VFNiveau">
             <constraints>
-              <grid row="1" column="3" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
-              <gridbag weightx="0.0" weighty="0.0"/>
+              <grid row="1" column="7" row-span="1" col-span="2" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <text value="Niveau"/>
             </properties>
           </component>
+          <component id="1ef23" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Joueur :"/>
+            </properties>
+          </component>
+          <component id="5fb6c" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Theme : "/>
+            </properties>
+          </component>
+          <component id="17232" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="2" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Question :"/>
+            </properties>
+          </component>
+          <component id="382e5" class="javax.swing.JLabel">
+            <constraints>
+              <grid row="1" column="6" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+            </constraints>
+            <properties>
+              <text value="Niveau :"/>
+            </properties>
+          </component>
+          <vspacer id="24b67">
+            <constraints>
+              <grid row="3" column="4" row-span="1" col-span="1" vsize-policy="6" hsize-policy="1" anchor="0" fill="2" indent="0" use-parent-layout="false"/>
+            </constraints>
+          </vspacer>
         </children>
       </grid>
       <grid id="b70a1" binding="Score" layout-manager="GridBagLayout">

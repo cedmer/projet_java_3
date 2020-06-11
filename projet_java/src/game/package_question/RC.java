@@ -1,10 +1,10 @@
-package game;
+package game.package_question;
 
-public class VF {
+public class RC {
     private String texte;
-    private boolean rep;
+    private String rep;
 
-    public VF(String texte, boolean rep) {
+    public RC(String texte, String rep) {
         this.texte=texte;
         this.rep=rep;
     }
@@ -17,17 +17,16 @@ public class VF {
         this.texte = texte;
     }
 
-    public boolean isRep() {
+    public String isRep() {
         return rep;
     }
 
-    public void setRep(boolean rep) {
+    public void setRep(String rep) {
         this.rep = rep;
     }
 
     public void afficherQuestion() {
         System.out.println("La question est : " + getTexte());
-
     }
     
     @Override
@@ -35,3 +34,4 @@ public class VF {
 		return texte;
 	}
 }
+

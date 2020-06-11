@@ -1,4 +1,4 @@
-package game;
+package game.package_joueur;
 
 public class Joueur {
     private static int incr = 100;

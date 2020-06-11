@@ -1,39 +1,40 @@
-package game;
+package game.package_question;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
+public class QuestionsTheme {
 
-public class FenetreQuestion {
 
+
+	private ArrayList<Question> listQuestions = new ArrayList<Question>();
 	private String basePath = "projet_java/src/Questions/";
 
-	public FenetreQuestion(String str) {
-		JFrame frameQuestions = new JFrame();
-		JPanel panelQuestion = new JPanel();
-		panelQuestion.setLayout(new GridLayout(0,3));
-		frameQuestions.setTitle("Liste des questions du theme : " + str);
-		frameQuestions.setSize(1400,200);
-		frameQuestions.setLocationRelativeTo(null);
-		frameQuestions.setVisible(true);
 
-		//for QCM
+	public QuestionsTheme(String str) {
+		this.listQuestions.addAll(getQCM(str));
+		this.listQuestions.addAll(getRC(str));
+		this.listQuestions.addAll(getVF(str));
+
+		Collections.shuffle(listQuestions);//pour mélanger les questions
+		
+	}
+	public ArrayList<Question> getListQuestions() {
+		return listQuestions;
+	}
+
+	private  ArrayList<Question> getQCM(String str){
 
 		String fileName= basePath + str +"/QCM";
 		File file= new File(fileName);
+
 		ArrayList<Question> lesQuestions = new ArrayList<Question>();
+
 		// this gives you a 2-dimensional array of strings
 		List<List<String>> lines = new ArrayList<>();
 		Scanner inputStream;
+
 		try{
 			inputStream = new Scanner(file);
 
@@ -53,13 +54,19 @@ public class FenetreQuestion {
 			Question<QCM> theQuestion = new Question<QCM>(question.get(0), Integer.valueOf(question.get(1)), theQCM);
 			lesQuestions.add(theQuestion);
 		}
-		
-		//for RC
-		
-		fileName= basePath + str +"/RC";
-		file= new File(fileName);
+		return lesQuestions;
+	}
+
+	private  ArrayList<Question> getRC(String str){
+
+		String fileName= basePath + str +"/RC";
+		File file= new File(fileName);
+
+		ArrayList<Question> lesQuestions = new ArrayList<Question>();
+
 		// this gives you a 2-dimensional array of strings
-		lines.clear();
+		List<List<String>> lines = new ArrayList<>();
+		Scanner inputStream;
 
 		try{
 			inputStream = new Scanner(file);
@@ -81,13 +88,20 @@ public class FenetreQuestion {
 			Question<RC> theQuestion = new Question<RC>(question.get(0), Integer.valueOf(question.get(1)), theRC);
 			lesQuestions.add(theQuestion);
 		}
-		
-		//for VF
-		
-		fileName= basePath + str +"/VF";
-		file= new File(fileName);
+		return lesQuestions;
+	}
+
+
+	private  ArrayList<Question> getVF(String str){
+
+		String fileName= basePath + str +"/VF";
+		File file= new File(fileName);
+
+		ArrayList<Question> lesQuestions = new ArrayList<Question>();
+
 		// this gives you a 2-dimensional array of strings
-		lines.clear();;
+		List<List<String>> lines = new ArrayList<>();
+		Scanner inputStream;
 
 		try{
 			inputStream = new Scanner(file);
@@ -108,50 +122,8 @@ public class FenetreQuestion {
 			Question<VF> theQuestion = new Question<VF>(question.get(0), Integer.valueOf(question.get(1)), theVF);
 			lesQuestions.add(theQuestion);
 		}
-		
-		ArrayList<Question> Q1 = new ArrayList<Question>();
-		JPanel panelQ1 = new JPanel();
-		panelQ1.setLayout(new GridLayout(10,0));
-		panelQ1.add(new JLabel("Question de niveau 1 :"));
-		ArrayList<Question> Q2 = new ArrayList<Question>();
-		JPanel panelQ2 = new JPanel();
-		panelQ2.setLayout(new GridLayout(10,0));
-		panelQ2.add(new JLabel("Question de niveau 2 :"));
-		ArrayList<Question> Q3 = new ArrayList<Question>();
-		JPanel panelQ3 = new JPanel();
-		panelQ3.setLayout(new GridLayout(10,0));
-		panelQ3.add(new JLabel("Question de niveau 3 :"));
-	
-		for(Question question: lesQuestions) {
-			//System.out.println(question.toString());
-			switch(question.difficulty){
-			case 1:
-				Q1.add(question);
-				break;
-			case 2:
-				Q2.add(question);
-				break;
-			case 3:
-				Q3.add(question);
-				break;
-			}
-
-			
-			
-		}
-		for(Question question: Q1) {
-			panelQ1.add(new JLabel(question.toString()));
-		}
-		for(Question question: Q2) {
-			panelQ2.add(new JLabel(question.toString()));
-		}
-		for(Question question: Q3) {
-			panelQ3.add(new JLabel(question.toString()));
-		}
-		panelQuestion.add(panelQ1);
-		panelQuestion.add(panelQ2);
-		panelQuestion.add(panelQ3);
-		frameQuestions.add(panelQuestion);
+		return lesQuestions;
 	}
+
 
 }

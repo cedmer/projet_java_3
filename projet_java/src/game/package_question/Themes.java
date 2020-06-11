@@ -1,14 +1,16 @@
-package game;
+package game.package_question;
+
+import game.package_question.QuestionsTheme;
 
 import java.util.ArrayList;
 import java.util.Random;
 
 public class Themes {
-    private ArrayList<Theme> listThemes;
+    private ArrayList<QuestionsTheme> listThemes;
     private ArrayList<Integer> listIndicateur;
 
     public Themes() {
-        this.listThemes = new ArrayList<Theme>();
+        this.listThemes = new ArrayList<QuestionsTheme>();
         this.listIndicateur = new ArrayList<Integer>();
 
         String themes_str = "Sciences,Sport,Histoire,Mathematiques,Musique,Geographie,Cuisine,Programmation,Reseau";
@@ -23,7 +25,7 @@ public class Themes {
 
     public void Afficher() {
         int cpt = 0;
-        for (Theme theme : this.listThemes) {
+        for (QuestionsTheme theme : this.listThemes) {
             System.out.print(theme + " : ");
             if (this.listIndicateur.contains(cpt))
                 System.out.println("disponible");
@@ -49,22 +51,21 @@ public class Themes {
         return listChoix;
     }
 
-    /*
-    public void MofifierTheme(String nouveauTheme, String ancienTheme){
 
-        for(int i=0 ; i< this.listThemes.size();i++){
-            if(ancienTheme.equals(listThemes.get(i))){
-                this.listThemes.set(i,nouveauTheme);
-            }
-        }
-    }
-     */
+//    public void MofifierTheme(String nouveauTheme, String ancienTheme){
+//
+//        for(int i=0 ; i< this.listThemes.size();i++){
+//            if(ancienTheme.equals(listThemes.get(i))){
+//                this.listThemes.set(i,nouveauTheme);
+//            }
+//        }
+//    }
 
-    public ArrayList<Theme> getListThemes() {
+    public ArrayList<QuestionsTheme> getListThemes() {
         return listThemes;
     }
 
-    public void setListThemes(ArrayList<Theme> listThemes) {
+    public void setListThemes(ArrayList<QuestionsTheme> listThemes) {
         this.listThemes = listThemes;
     }
 
