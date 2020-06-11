@@ -1,4 +1,7 @@
-package game;
+package game.Window;
+
+import game.Window.FenetreQuestion;
+import game.Window.fenetre;
 
 import java.awt.BorderLayout;
 import java.awt.GridLayout;

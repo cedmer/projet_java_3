@@ -5,9 +5,9 @@ public class Question<T> {
 
 
     int numero;
-    String theme;
-	int difficulty;
-	T enonce;
+    private String theme;
+	private int difficulty;
+	private T enonce;
 
 	public Question(String theme, int difficulty , T enonce){
 
