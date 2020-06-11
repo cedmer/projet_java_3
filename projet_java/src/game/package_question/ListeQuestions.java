@@ -1,4 +1,4 @@
-package game;
+package game.package_question;
 
 import java.util.ArrayList;
 

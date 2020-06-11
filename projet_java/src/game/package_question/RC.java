@@ -1,4 +1,4 @@
-package game;
+package game.package_question;
 
 public class RC {
     private String texte;

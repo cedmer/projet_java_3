@@ -1,4 +1,6 @@
-package game;
+package game.package_question;
+
+import game.package_question.QuestionsTheme;
 
 import java.util.ArrayList;
 import java.util.Random;

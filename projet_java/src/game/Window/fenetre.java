@@ -1,4 +1,8 @@
-package game;
+package game.Window;
+
+import game.package_joueur.EnsJoueurs;
+import game.package_joueur.Joueur;
+import game.package_question.*;
 
 import javax.swing.*;
 import javax.swing.border.TitledBorder;
@@ -28,7 +32,7 @@ public class fenetre {
     private JButton VFFaux;
     private JButton reponse2;
     private JButton reponse3;
-    private JTextArea RCreponse;
+    private JTextField RCreponse;
     private JButton RCValider;
     private JLabel QCMjoueur;
     private JLabel QCMQuestion;
@@ -117,6 +121,10 @@ public class fenetre {
                     listjoueur.add(j2);
                     listjoueur.add(j3);
                     listjoueur.add(j4);
+                    J.add(j1);
+                    J.add(j2);
+                    J.add(j3);
+                    J.add(j4);
                     Collections.shuffle(listjoueur);//pour melanger l'odre de jeu des joueurs
                     Phase = 1;
                     Theme  = t.SelectionnerTheme();
@@ -453,8 +461,8 @@ public class fenetre {
                         listsixTheme.add(t.SelectionnerTheme());
                     }
                     for (int j = 0; j < 6; j++) {
-                        theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
-                        theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
+                        theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme());
+                        theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme());
                     }
                     Choixthemeparjoueur(2);
                 } else if (Phase == 3) {
@@ -496,10 +504,10 @@ public class fenetre {
                     nbrthemechoisi = nbrthemechoisi + 2;
 
                     for (int i = 0; i < 9; i++) {
-                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).theme.equals(theme1.getSelectedItem())) {
+                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).getTheme().equals(theme1.getSelectedItem())) {
                             listthemechoisi.add(i);
                             for (int j = 0; j < 5; j++) {
-                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme.equals(theme1.getSelectedItem())) {
+                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme().equals(theme1.getSelectedItem())) {
                                     listsixTheme.remove(j);
 
                                     break;
@@ -508,10 +516,10 @@ public class fenetre {
                         }
                     }
                     for (int i = 0; i < 9; i++) {
-                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).theme.equals(theme2.getSelectedItem())) {
+                        if (listethemephase.getListQuestionstheme().get(i).getListQuestions().get(0).getTheme().equals(theme2.getSelectedItem())) {
                             listthemechoisi.add(i);
                             for (int j = 0; j < 5; j++) {
-                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme.equals(theme2.getSelectedItem())) {
+                                if (listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme().equals(theme2.getSelectedItem())) {
 
                                     listsixTheme.remove(j);
 
@@ -827,7 +835,7 @@ public class fenetre {
         gbc.gridy = 1;
         gbc.anchor = GridBagConstraints.WEST;
         RCPanel.add(label8, gbc);
-        RCreponse = new JTextArea();
+        RCreponse = new JTextField();
         gbc = new GridBagConstraints();
         gbc.gridx = 1;
         gbc.gridy = 3;
@@ -1133,7 +1141,7 @@ public class fenetre {
         f.setContentPane(Choixjoueur);
         f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         f.setLocationRelativeTo(null);
-        f.setPreferredSize(new Dimension(600, 400));
+        f.setPreferredSize(new Dimension(600, 200));
         f.pack();
         f.setVisible(true);
 
@@ -1149,7 +1157,7 @@ public class fenetre {
     }
 
     public void Questionphase1(int theme) {
-        while(listethemephase.getListQuestionstheme().get(theme).getListQuestions().get(nbr).difficulty != 1) {//on selectionne que les question de niveau 1
+        while(listethemephase.getListQuestionstheme().get(theme).getListQuestions().get(nbr).getDifficulty() != 1) {//on selectionne que les question de niveau 1
                 nbr = nbr + 1;
             if (nbr > listethemephase.getListQuestionstheme().get(theme).getListQuestions().size()-1) {//si on sort du nombre d'element alors on revient a 0
                 nbr = 0;
@@ -1203,7 +1211,7 @@ public class fenetre {
         f.revalidate();
     }
     public void typeQuestion(){
-        if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).enonce instanceof QCM) {
+        if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getenonce() instanceof QCM) {
 
             QCMQuestion.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).QCMtype().getTexte());
             QCMTheme.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getTheme());
@@ -1211,25 +1219,25 @@ public class fenetre {
             reponse1.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).QCMtype().getRep1());
             reponse2.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).QCMtype().getRep2());
             reponse3.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).QCMtype().getRep3());
-            QCMNiveau.setText(String.valueOf(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).difficulty));
+            QCMNiveau.setText(String.valueOf(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getDifficulty()));
             f.setContentPane(QCMPanel);
             f.revalidate();
 
-        } else if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).enonce instanceof VF) {
+        } else if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getenonce() instanceof VF) {
 
             VFQuestion.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).VFtype().getTexte());
             VFTheme.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getTheme());
             VFJoueur.setText(listjoueur.get(joueurjoue).getNom());
-            VFNiveau.setText(String.valueOf(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).difficulty));
+            VFNiveau.setText(String.valueOf(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getDifficulty()));
             f.setContentPane(VFPanel);
             f.revalidate();
 
-        } else if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).enonce instanceof RC){
+        } else if (listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getenonce() instanceof RC){
 
             RCQuestion.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).RCtype().getTexte());
             RCTheme.setText(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getTheme());
             RCjoueur.setText(listjoueur.get(joueurjoue).getNom());
-            RCNiveau.setText(String.valueOf(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).difficulty));
+            RCNiveau.setText(String.valueOf(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getDifficulty()));
             f.setContentPane(RCPanel);
             f.revalidate();
 
@@ -1267,15 +1275,15 @@ public class fenetre {
             theme1.removeAllItems();
             theme2.removeAllItems();
             for (int j = 0; j < 4; j++) {
-                theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
-                theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
+                theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme());
+                theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme());
             }
         } else if (i == 0) {
             theme1.removeAllItems();
             theme2.removeAllItems();
             for (int j = 0; j < 2; j++) {
-               theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
-               theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).theme);
+               theme1.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme());
+               theme2.addItem(listethemephase.getListQuestionstheme().get(listsixTheme.get(j)).getListQuestions().get(0).getTheme());
             }
         }
         joueur.setText(listjoueur.get(i).getNom());
@@ -1285,7 +1293,7 @@ public class fenetre {
 
     public void Questionphase2() {
         Theme = listthemechoisi.get(nbrquestionphase2);
-        while(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).difficulty != 2) {//on selectionne que les question de niveau 2
+        while(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getDifficulty() != 2) {//on selectionne que les question de niveau 2
             nbr = nbr + 1;
             if (nbr > listethemephase.getListQuestionstheme().get(Theme).getListQuestions().size()-1) {//si on sort du nombre d'element alors on revient a 0
                 nbr = 0;
@@ -1324,7 +1332,7 @@ public class fenetre {
 
     public void Questionphase3() {
         Theme = listthemephase3.get(nbrquestionphase3 % 3);
-        while(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).difficulty != 3) {//on selectionne que les question de niveau 1
+        while(listethemephase.getListQuestionstheme().get(Theme).getListQuestions().get(nbr).getDifficulty() != 3) {//on selectionne que les question de niveau 1
             nbr = nbr + 1;
             if (nbr > listethemephase.getListQuestionstheme().get(Theme).getListQuestions().size()-1) {//si on sort du nombre d'element alors on revient a 0
                 nbr = 0;
