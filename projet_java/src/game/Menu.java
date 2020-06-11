@@ -38,7 +38,7 @@ public class Menu {
 		JButton theme8 = new JButton("Programmation");
 		theme8.putClientProperty("theme", "Programmation");
 		JButton theme9 = new JButton("Reseau");
-		theme1.putClientProperty("theme", "Reseau");
+		theme9.putClientProperty("theme", "Reseau");
 		frameAccueil.add(labelJeu, BorderLayout.NORTH);
 		panelThemes.add(theme1);
 		panelThemes.add(theme2);
