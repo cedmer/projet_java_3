@@ -1,4 +1,4 @@
-package game;
+package game.package_question;
 
 import java.awt.CardLayout;
 import java.util.ArrayList;
@@ -7,6 +7,8 @@ import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+
+import game.package_joueur.EnsJoueurs;
 
 
 public interface Phase {
